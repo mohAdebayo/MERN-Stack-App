@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+    client:
+      build:
+        context: ./client
+      depends_on:
+        - server
+
+    server:
+      build:
+        context: .
+      depends_on:
+        - mongo
+
+    mongo:
+      image: mongo
+      ports: 
+        - 27017:27017
+      environment:
+        - MONGO-INITDB_ROOT_USERNAME=admin
+        - MONGO-INITDB_ROOT_PASSWORD=password 
+
+
+ 
