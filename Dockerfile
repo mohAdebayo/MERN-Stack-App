@@ -12,5 +12,5 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["nodemon", "app.js"]
+CMD yarn server
 
