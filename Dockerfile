@@ -10,6 +10,8 @@ RUN yarn install
 
 COPY . .
 
+#RUN cd client && yarn build
+
 EXPOSE 5000
 
 CMD yarn server
