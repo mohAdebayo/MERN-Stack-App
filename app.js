@@ -29,7 +29,7 @@ let app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'client/public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use((req, res, next) => {
      res.header("Access-Control-Allow-Origin", "*");
@@ -45,7 +45,7 @@ app.use('/api/articles', articles);
 app.use('/api/users', users);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/public/index.html'));
+    res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
 
 app.listen(PORT, () => {
