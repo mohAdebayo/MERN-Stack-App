@@ -8,7 +8,7 @@ test_demo:
   script:
     - echo "testing testing"
 
-.test_vuejs:
+test:
   stage: test
   image: node:16.13.1-alpine
   script:
@@ -16,7 +16,7 @@ test_demo:
     - yarn install 
     - yarn jest
 
-build_django:
+build_backend:
   stage: build-docker
   image: docker:20.10.16
   services:
@@ -29,7 +29,7 @@ build_django:
     - docker build -t gerrome/mern-stack-app_server:1 .
     - docker push gerrome/mern-stack-app_server:1
 
-build_vue-nginx:
+build_frontend:
   stage: build-docker
   image: docker:20.10.16
   services:
