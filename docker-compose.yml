@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
     client:
-    image: gerrome/mern-stack-app_client:1
+      image: gerrome/mern-stack-app_client:1
     #  build:
     #    context: ./client
       stdin_open: true
