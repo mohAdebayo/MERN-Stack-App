@@ -1,17 +1,18 @@
 version: "3.3"
 
 services:
-    #client:
+    client:
+    image: gerrome/mern-stack-app_client:1
     #  build:
     #    context: ./client
-    #  stdin_open: true
-    #  ports:
-    #    - 3000:3000
-      
+      stdin_open: true
+      ports:
+        - 3000:3000
 
     server:
-      build:
-        context: .
+      image: gerrome/mern-stack-app_server:1
+      #build:
+      #  context: .
       ports:
         - 5000:5000
       depends_on:
