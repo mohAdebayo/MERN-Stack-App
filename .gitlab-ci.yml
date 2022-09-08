@@ -49,7 +49,7 @@ deploy_containers:
   stage: deploy
   script:
     - chmod 400 $SSH_PRIVATE_KEY
-    - apk update && apk add openssh-client 
+    - apt update && apt install openssh-client 
     - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no victor@192.168.56.111 "cd MERN-Stack-App"
   only:
     - master
