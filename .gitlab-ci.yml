@@ -45,17 +45,13 @@ stages:
 
 
 deploy_containers:
+  image: alpine:latest
   stage: deploy
-  before_script:
-    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client )' 
-    - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - ssh-keyscan 192.168.56.112 >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
   script:
-    - ssh victor@192.168.56.112 
-  
+    - chmod og= $SSH_PRIVATE_KEY
+    - apk update && apk add openssh-client 
+    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no victor@192.168.56.112 "cd MERN-Stack-App"
+  only:
+    - master
   
 
