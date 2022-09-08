@@ -55,7 +55,7 @@ deploy_containers:
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-    - ssh victor@192.168.56.111 "K8s"
+    - ssh victor@Node4 "cd K8s"
   only:
     - master
   
