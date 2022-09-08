@@ -46,6 +46,8 @@ test_demo:
 
 deploy_containers:
   stage: deploy
+  before_script:
+    - chmod 400 $SSH_KEY
   script: 
     - ssh -o StrictHostKeyChecking=no -i $SSH_KEY victor@192.168.56.112
   
