@@ -45,12 +45,17 @@ stages:
 
 
 deploy_containers:
-  image: ubuntu:latest
   stage: deploy
+  before_script: 
+    - apt-get update -qq
+    - apt-get install -qq git # Setup SSH deploy keys
+    - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-    - chmod 400 $SSH_PRIVATE_KEY
-    - apt update && apt install -y openssh-client 
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no victor@192.168.56.111 "cd MERN-Stack-App"
+    - ssh victor@192.168.56.111 "K8s"
   only:
     - master
   
