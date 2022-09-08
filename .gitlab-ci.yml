@@ -3,7 +3,7 @@ stages:
   - build-docker
   - deploy 
 
-test_demo:
+.test_demo:
   stage: test
   image: node:16.13.1-alpine
   script:
