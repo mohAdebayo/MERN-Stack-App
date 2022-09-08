@@ -45,7 +45,7 @@ stages:
 
 
 deploy_containers:
-  image: alpine:latest
+  image: ubuntu:latest
   stage: deploy
   script:
     - chmod 400 $SSH_PRIVATE_KEY
