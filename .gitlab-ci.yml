@@ -47,6 +47,6 @@ test_demo:
 deploy_containers:
   stage: deploy
   script: 
-    - ssh -o StrictHostKeyChecking=no -i victor@192.168.56.112
+    - ssh -o StrictHostKeyChecking=no victor@192.168.56.112
   
 
