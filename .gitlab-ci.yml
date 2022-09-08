@@ -49,6 +49,6 @@ deploy_containers:
   image: kroniak/ssh-client
   script: 
     - chmod 400 $SSH_KEY
-    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY "victor@192.168.56.112"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY -p 443 "victor@192.168.56.112" 
   
 
