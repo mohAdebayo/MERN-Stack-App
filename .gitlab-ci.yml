@@ -3,7 +3,7 @@ stages:
   - build-docker
   - deploy 
 
-test_demo:
+.test_demo:
   stage: test
   image: node:16.13.1-alpine
   script:
@@ -17,7 +17,7 @@ test_demo:
     - yarn install 
     - yarn jest
 
-build_backend:
+.build_backend:
   stage: build-docker
   image: docker:20.10.16
   services:
@@ -30,7 +30,7 @@ build_backend:
     - docker build -t gerrome/mern-stack-app_server:1 .
     - docker push gerrome/mern-stack-app_server:1
 
-build_frontend:
+.build_frontend:
   stage: build-docker
   image: docker:20.10.16
   services:
@@ -44,10 +44,18 @@ build_frontend:
     - docker push gerrome/mern-stack-app_client:1
 
 
-.deploy_containers:
+deploy_containers:
   stage: deploy
-  script: 
-    - chmod 400 $SSH_KEY
-    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY "victor@192.168.56.112" 
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )' 
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan 192.168.56.112 >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh victor@192.168.56.112 
+  
   
 
