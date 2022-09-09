@@ -44,7 +44,7 @@ stages:
     - docker push gerrome/mern-stack-app_client:1
 
 
-deploy_container:
+deploy_containers:
   stage: deploy
   before_script: 
     - chmod 400 $SSH_PTIVATE_KEY
