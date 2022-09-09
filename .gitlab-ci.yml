@@ -15,7 +15,7 @@ test:
   script:
     - cd client
     - yarn install 
-    - yarn test
+    - yarn run test
 
 build_backend:
   stage: build-docker
