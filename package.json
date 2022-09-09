@@ -1,7 +1,7 @@
 {
     "name": "basic-mern-app",
     "version": "1.0.0",
-    "description": "A Basic MERN Stack App just for practice",
+    "description": "A Basic MERN Stack App just for some practice",
     "engines": {
         "node": "8.12.0"
     },
