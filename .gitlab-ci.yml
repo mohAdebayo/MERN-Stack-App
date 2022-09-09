@@ -44,7 +44,7 @@ stages:
     - docker push gerrome/mern-stack-app_client:1
 
 
-deploy_containers:
+deploy_container:
   stage: deploy
   before_script: 
     - apt-get update -qq
