@@ -51,10 +51,11 @@ deploy_container:
     - apt-get install -qq git # Setup SSH deploy keys
     - 'which ssh-agent || ( apt-get install -qq openssh-client )'
     - eval $(ssh-agent -s)
-    - chmod 400 $SSH_PRIVATE_KEY
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - echo 192.168.56.111 > ~.ssh/known_hosts
+    - chmod 600 ~/.ssh/known_hosts
   script:
     - ssh -v victor@192.168.56.111 "cd K8s"
   only:
