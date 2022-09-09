@@ -55,7 +55,6 @@ deploy_container:
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config' 
   script:
-    - ping victor@192.168.56.111
     - ssh -vvv -p 443 victor@192.168.56.111 "cd K8s"
   only:
     - master
