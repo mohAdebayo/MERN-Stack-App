@@ -3,7 +3,7 @@ stages:
   - build-docker
   - deploy 
 
-.test_demo:
+test_demo:
   stage: test
   image: node:16.13.1-alpine
   script:
@@ -17,7 +17,7 @@ stages:
     - yarn install 
     - yarn jest
 
-.build_backend:
+build_backend:
   stage: build-docker
   image: docker:20.10.16
   services:
@@ -30,7 +30,7 @@ stages:
     - docker build -t gerrome/mern-stack-app_server:1 .
     - docker push gerrome/mern-stack-app_server:1
 
-.build_frontend:
+build_frontend:
   stage: build-docker
   image: docker:20.10.16
   services:
@@ -44,7 +44,7 @@ stages:
     - docker push gerrome/mern-stack-app_client:1
 
 
-deploy_containers:
+.deploy_containers:
   stage: deploy
   before_script: 
     - chmod 400 $SSH_PRIVATE_KEY
