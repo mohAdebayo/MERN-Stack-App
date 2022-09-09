@@ -53,11 +53,9 @@ deploy_container:
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - echo 192.168.56.111 > ~.ssh/known_hosts
-    - chmod 600 ~/.ssh/known_hosts
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config' 
   script:
-    - ssh -v victor@192.168.56.111 "cd K8s"
+    - ssh -vv victor@192.168.56.111 "cd K8s"
   only:
     - master
   
