@@ -9,13 +9,13 @@ test_demo:
   script:
     - echo "testing testing"
 
-.test:
+test:
   stage: test
   image: node:16.13.1-alpine
   script:
     - cd client
-    - yarn install 
-    - yarn run test
+    - npm install 
+    - npm test
 
 build_backend:
   stage: build-docker
