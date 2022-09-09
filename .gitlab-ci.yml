@@ -9,7 +9,7 @@ test_demo:
   script:
     - echo "testing testing"
 
-test:
+.test:
   stage: test
   image: node:16.13.1-alpine
   script:
