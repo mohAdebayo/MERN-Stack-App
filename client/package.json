@@ -17,7 +17,9 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
+        "test": "jest --verbose ./app/javascript",
         "eject": "react-scripts eject"
     }
 }
+
+#react-scripts test --env=jsdom
