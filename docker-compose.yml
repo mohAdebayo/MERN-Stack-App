@@ -7,14 +7,14 @@ services:
     #    context: ./client
       stdin_open: true
       ports:
-        - 3000:3000
+        - "3000:3000"
 
     server:
       image: gerrome/mern-stack-app_server:1
       #build:
       #  context: .
       ports:
-        - 5000:5000
+        - "5000:5000"
       depends_on:
         - mongo
 
@@ -24,7 +24,7 @@ services:
         - 27017:27017
       environment:
         - MONGO-INITDB_ROOT_USERNAME=admin
-        - MONGO-INITDB_ROOT_PASSWORD=password 
+        - MONGO-INITDB_ROOT_PASSWORD=password
       stdin_open: true
 
  
