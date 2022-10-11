@@ -18,6 +18,15 @@ services:
       depends_on:
         - mongo
 
+    nginx:
+      image: gerrome/mern-stack-app_nginx:1
+      #build:
+      #  context: .
+      ports:
+        - "80:80"
+      depends_on:
+        - client        
+
     mongo:
       image: mongo:4.4
       ports: 

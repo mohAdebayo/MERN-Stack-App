@@ -35,4 +35,11 @@ jobs:
         with:
           context: ./client
           push: true
-          tags: gerrome/mern-stack-app_client:1          
+          tags: gerrome/mern-stack-app_client:1    
+
+      - name: Build & push nginx
+        uses: docker/build-push-action@v3
+        with:
+          context: ./nginx
+          push: true
+          tags: gerrome/mern-stack-app_nginx:1                    
