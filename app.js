@@ -8,10 +8,10 @@ const articles = require('./routes/articlesRoute.js');
 const users = require('./routes/usersRoute.js');
 const config = require('./config.js');
 
-const MONGODB_URI = 'mongodb://username:password@mongodb:27017/basic-mern-stack-app';
+const MONGODB_URI = config.mongodburi || 'mongodb://username:password@mongodb:27017';
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://username:password@mongodb:27017/basic-mern-stack-app', {
+mongoose.connect('mongodb://username:password@mongodb:27017', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true
