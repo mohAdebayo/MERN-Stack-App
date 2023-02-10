@@ -12,7 +12,7 @@ RUN yarn install
 
 COPY . .
 
-RUN yarn run build
+RUN npm run build
 
 FROM nginx:stable-alpine
 
