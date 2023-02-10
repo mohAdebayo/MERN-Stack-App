@@ -12,6 +12,11 @@ RUN yarn install
 
 COPY . .
 
-EXPOSE 3000
+RUN npm run build
 
-CMD ["yarn","start"]
+FROM nginx:stable-alpine
+
+COPY --from=build /app /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
+
+COPY default.conf /etc/nginx/conf.d/default.conf

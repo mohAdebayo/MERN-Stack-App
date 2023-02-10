@@ -14,7 +14,7 @@ const options = (data) => {
 
 export const getAllArticles = () => {
     return dispatch => {
-        fetch('/api/articles')
+        fetch(`http://victor.20.84.39.184.nip.io/api/articles`)
         .then(res => res.json())
         .then(res => {
             localStorage.setItem('BasicMERNStackAppAllArticles', JSON.stringify(res.articles));
@@ -25,7 +25,7 @@ export const getAllArticles = () => {
 
 export const getMyArticles = () => {
     return dispatch => {
-        fetch('/api/articles/myarticles', {
+        fetch(`http://victor.20.84.39.184.nip.io/api/articles/myarticles`, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('jwtToken'),
                 'Content-Type': 'application/json'
@@ -52,21 +52,21 @@ export const getArticle = (articleId) => {
 
 export const submitNewArticle = (articleData) => {
     return dispatch => {
-        return fetch('/api/articles/add', options(articleData))
+        return fetch(`http://victor.20.84.39.184.nip.io/api/articles/add`, options(articleData))
         .then(res => res.json())
     }
 };
 
 export const saveArticle = (articleId, articleData) => {
     return dispatch => {
-        return fetch('/api/articles/edit/' + articleId, options(articleData))
+        return fetch(`http://victor.20.84.39.184.nip.io/api/articles/edit/` + articleId, options(articleData))
         .then(res => res.json())
     }
 }
 
 export const deleteArticle = (articleId) => {
     return dispatch => {
-        return fetch('/api/articles/delete/' + articleId, {
+        return fetch(`http://victor.20.84.39.184.nip.io/api/articles/delete/` + articleId, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('jwtToken'),
                 'Content-Type': 'application/json'
