@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: gerrome/mern-stack-app_server:1.4
+          tags: gerrome/mern-stack-app_server:1.5
           
 
       - name: Build & push client
