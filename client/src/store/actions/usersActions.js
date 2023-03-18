@@ -13,19 +13,19 @@ const options = data => {
 
 export const checkUserUniqueness = ({ field, value }) => {
     return dispatch => {
-        return fetch(`http://victor.20.84.39.184.nip.io/api/users/validate`, options({ field, value }))
+        return fetch(`http://app.ifahsvictor.com/api/users/validate`, options({ field, value }))
     }
 }
 
 export const userSignupRequest = (userSignupDetails) => {
     return dispatch => {
-        return fetch(`http://victor.20.84.39.184.nip.io/api/users/signup`, options(userSignupDetails))
+        return fetch(`http://app.ifahsvictor.com/api/users/signup`, options(userSignupDetails))
     }
 }
 
 export const userLoginRequest = (userLoginDetails) => {
     return dispatch => {
-        return fetch(`http://victor.20.84.39.184.nip.io/api/users/login`, options(userLoginDetails))
+        return fetch(`http://app.ifahsvictor.com/api/users/login`, options(userLoginDetails))
         .then(res => res.json())
         .then(res => {
             if (res.success) {

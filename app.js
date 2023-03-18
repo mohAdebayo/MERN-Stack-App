@@ -8,7 +8,7 @@ const articles = require('./routes/articlesRoute.js');
 const users = require('./routes/usersRoute.js');
 const config = require('./config.js');
 
-const MONGODB_URI = config.mongodburi || `mongodb://mongodb:27017/basic-mern-app`;
+const MONGODB_URI = config.mongodburi || `mongodb://username:password@mongodb:27017/basic-mern-app`;
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(`mongodb://mongodb:27017/basic-mern-app`, {
