@@ -11,7 +11,7 @@ const config = require('./config.js');
 const MONGODB_URI = config.mongodburi || `mongodb://username:password@mongodb:27017/basic-mern-app`;
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(`mongodb://mongodb:27017/basic-mern-app`, {
+mongoose.connect(`mongodb://username:password@mongodb:27017/basic-mern-app`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true
