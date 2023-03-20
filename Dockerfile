@@ -10,9 +10,9 @@ RUN yarn install
 
 COPY . .
 
-RUN cd client && yarn install && yarn build
+#RUN cd client && yarn install && yarn build
 
 EXPOSE 5000
 
-CMD yarn server
+CMD nodemon app.js
 
