@@ -49,4 +49,4 @@ jobs:
         with:
           context: ./mongo
           push: true
-          tags: gerrome/mern-stack-app_mongo:2.1
+          tags: gerrome/mern-stack-app_mongo:1.1

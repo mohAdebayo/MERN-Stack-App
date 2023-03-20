@@ -1,4 +1,4 @@
-FROM aashreys/mongo-auth:latest
+FROM mongo:4.4
 
 ENV MONGO_INITDB_ROOT_USERNAME=username \
     MONGO_INITDB_ROOT_PASSWORD=password
