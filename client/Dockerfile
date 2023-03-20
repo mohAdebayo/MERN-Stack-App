@@ -12,7 +12,14 @@ RUN yarn install
 
 COPY . .
 
-EXPOSE 3000
+RUN yarn run build
+#EXPOSE 3000
 
-CMD yarn start
+#CMD yarn start
+FROM nginx:stable-alpine
 
+COPY --from=build /app/build /usr/share/nginx/html
+
+COPY --from=build /app /usr/share/nginx/html
+
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
