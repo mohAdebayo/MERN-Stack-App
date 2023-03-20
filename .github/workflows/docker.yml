@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: gerrome/mern-stack-app_server:5.2
+          tags: gerrome/mern-stack-app_server:5.3
           
 
       - name: Build & push client
@@ -35,18 +35,18 @@ jobs:
         with:
           context: ./client
           push: true
-          tags: gerrome/mern-stack-app_client:3
+          tags: gerrome/mern-stack-app_client:3.1
 
       - name: Build & push nginx
         uses: docker/build-push-action@v3
         with:
           context: ./nginx
           push: true
-          tags: gerrome/mern-stack-app_nginx:1                    
+          tags: gerrome/mern-stack-app_nginx:1                  
 
       - name: Build & push mongo
         uses: docker/build-push-action@v3
         with:
           context: ./mongo
           push: true
-          tags: gerrome/mern-stack-app_mongo:2    
+          tags: gerrome/mern-stack-app_mongo:2.1

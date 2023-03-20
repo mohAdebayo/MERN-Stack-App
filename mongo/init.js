@@ -1,4 +1,4 @@
-var db = connect("mongodb://localhost/basic-mern-app");
+var db = connect("mongodb://localhost:27017");
 
 db.createUser({
     user: "victor",
