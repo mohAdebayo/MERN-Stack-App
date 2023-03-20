@@ -43,3 +43,10 @@ jobs:
           context: ./nginx
           push: true
           tags: gerrome/mern-stack-app_nginx:1                    
+
+      - name: Build & push mongo
+        uses: docker/build-push-action@v3
+        with:
+          context: ./mongo
+          push: true
+          tags: gerrome/mern-stack-app_mongo:1    
