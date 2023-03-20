@@ -1,4 +1,4 @@
-FROM node:12.14.1-alpine as build
+FROM node:8.12.0-alpine as build
 
 WORKDIR /app
 
@@ -7,8 +7,6 @@ COPY package.json /app
 COPY yarn.lock /app
 
 RUN yarn install
-
-RUN yarn add jsonwebtoken
 
 COPY . .
 
