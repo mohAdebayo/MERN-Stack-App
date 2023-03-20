@@ -6,7 +6,7 @@ COPY package.json /app
 
 COPY yarn.lock /app
 
-RUN yarn add jsonwebtoken
+#RUN yarn add jsonwebtoken
 
 RUN yarn install
 
