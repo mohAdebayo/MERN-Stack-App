@@ -2,7 +2,7 @@ name: Static CI/CD Workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
