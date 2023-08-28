@@ -1,4 +1,4 @@
-name: Static CI/CD Workflow
+name: Static CI/CD Workflow demo
 
 on:
   push:
