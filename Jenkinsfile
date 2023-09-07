@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        DHUB = credentials('dockerhub')
+        DHUB = credentials('python')
     }
     stages {      
-        stage('Docker builds') {
+        stage('Docker create') {
                 agent any
             steps {
                 sh 'docker build -t gerrome/mern-stack-app_server:1 .'
