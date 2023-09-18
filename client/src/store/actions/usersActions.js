@@ -13,19 +13,19 @@ const options = data => {
 
 export const checkUserUniqueness = ({ field, value }) => {
     return dispatch => {
-        return fetch(`http://app.ifahsvictor.com/api/users/validate`, options({ field, value }))
+        return fetch(`http://172.177.133.31/api/users/validate`, options({ field, value }))
     }
 }
 
 export const userSignupRequest = (userSignupDetails) => {
     return dispatch => {
-        return fetch(`http://app.ifahsvictor.com/api/users/signup`, options(userSignupDetails))
+        return fetch(`http://172.177.133.31/api/users/signup`, options(userSignupDetails))
     }
 }
 
 export const userLoginRequest = (userLoginDetails) => {
     return dispatch => {
-        return fetch(`http://app.ifahsvictor.com/api/users/login`, options(userLoginDetails))
+        return fetch(`http://172.177.133.31/api/users/login`, options(userLoginDetails))
         .then(res => res.json())
         .then(res => {
             if (res.success) {
